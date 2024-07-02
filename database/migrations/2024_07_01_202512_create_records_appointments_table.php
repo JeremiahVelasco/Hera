@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('records_appointments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('guardian_id');
             $table->foreignId('child_id');
             $table->string('date');
             $table->text('details');
