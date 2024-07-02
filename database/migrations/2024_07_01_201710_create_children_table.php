@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('children', function (Blueprint $table) {
             $table->id();
-            $table->json('guardian');
+            $table->json('guardians');
             $table->string('given_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');

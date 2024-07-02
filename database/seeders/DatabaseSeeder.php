@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
 
         // Child
         Child::create([
-            'guardian' => json_encode([1]),
+            'guardians' => json_encode([1]),
             'given_name' => 'Jeremiah',
             'middle_name' => 'Daligues',
             'last_name' => 'Velasco',
