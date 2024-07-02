@@ -10,6 +10,7 @@ class RecordsGrowth extends Model
     use HasFactory;
 
     protected $fillable = [
+        'guardian_id',
         'child_id',
         'date',
         'height',
