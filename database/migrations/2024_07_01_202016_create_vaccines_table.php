@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->integer('recommended_age');
+            $table->string('recommended_age');
             $table->integer('doses');
             $table->string('manufacturer');
             $table->timestamps();

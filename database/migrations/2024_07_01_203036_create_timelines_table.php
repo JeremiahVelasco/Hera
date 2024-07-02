@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('child_id');
             $table->integer('event_type');
-            $table->foreign('event_id');
+            $table->foreignId('event_id');
             $table->timestamps();
         });
     }

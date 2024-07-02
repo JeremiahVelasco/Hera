@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Child extends Model
+class Guardian extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'guardians',
         'given_name',
         'middle_name',
         'last_name',
-        'date_of_birth',
-        'height',
-        'weight'
+        'email',
+        'contact',
+        'password',
+        'children'
     ];
 
-    public function guardian()
+    public function children()
     {
-        return $this->belongsToMany(Guardian::class);
+        return $this->hasMany(Child::class);
     }
 }

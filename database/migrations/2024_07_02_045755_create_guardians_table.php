@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('children', function (Blueprint $table) {
+        Schema::create('guardians', function (Blueprint $table) {
             $table->id();
-            $table->json('guardian');
             $table->string('given_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
-            $table->string('date_of_birth');
-            $table->decimal('height');
-            $table->decimal('weight');
+            $table->string('email')->unique();
+            $table->string('contact')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password')->default(bcrypt('password'));
+            $table->json('children')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('children');
+        Schema::dropIfExists('guardians');
     }
 };
