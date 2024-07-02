@@ -10,6 +10,7 @@ class Timeline extends Model
     use HasFactory;
 
     protected $fillable = [
+        'guardian_id',
         'child_id',
         'event_type',
         'event_id',

@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RecordsVaccine extends Model
+class EventType extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'child_id',
-        'vaccine_id',
-        'date',
-        'dosage_number',
-        'dosage',
-        'injection_site',
-        'details',
+        'name'
     ];
+
+    const VACCINATION = 1;
+    const APPOINTMENT = 2;
+    const GROWTH_UPDATE = 3;
 }

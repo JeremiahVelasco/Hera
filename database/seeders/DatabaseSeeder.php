@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Event Types
+        $this->call(EventTypeSeeder::class);
+
         // Admin
         User::factory()->create([
             'name' => 'Admin',
@@ -44,13 +47,6 @@ class DatabaseSeeder extends Seeder
             'weight' => 29.9
         ]);
 
-        // Timeline event
-        Timeline::create([
-            'child_id' => 1,
-            'event_type' => 1,
-            'event_id' => 1,
-        ]);
-
         // Vaccine 
         Vaccine::create([
             'name' => 'Engerix-B',
@@ -58,17 +54,6 @@ class DatabaseSeeder extends Seeder
             'recommended_age' => '12 Hours',
             'doses' => 3,
             'manufacturer' => 'GlaxoSmithKline'
-        ]);
-
-        // Vaccination Record
-        RecordsVaccine::create([
-            'child_id' => 1,
-            'vaccine_id' => 1,
-            'date' => '10-27-1998',
-            'dose_number' => 1,
-            'dosage' => 0.5,
-            'injection_site' => 'Intramuscular - anterolateral aspect of the thigh',
-            'details' => 'No complications'
         ]);
     }
 }

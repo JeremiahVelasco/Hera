@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('child_id');
             $table->foreignId('vaccine_id');
             $table->string('date');
-            $table->integer('dose_number');
+            $table->integer('dosage_number');
             $table->decimal('dosage');
             $table->string('injection_site');
             $table->text('details');

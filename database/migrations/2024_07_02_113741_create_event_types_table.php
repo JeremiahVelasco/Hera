@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('timelines', function (Blueprint $table) {
+        Schema::create('event_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('guardian_id');
-            $table->foreignId('child_id');
-            $table->integer('event_type');
-            $table->foreignId('event_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('timelines');
+        Schema::dropIfExists('event_types');
     }
 };
