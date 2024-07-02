@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Child;
+use App\Traits\LogTrait;
 use App\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 
 class ChildController extends Controller
 {
-    use ResponseTrait;
+    use ResponseTrait, LogTrait;
     /**
      * Display a listing of the resource.
      */
@@ -84,8 +85,11 @@ class ChildController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Child $child)
     {
-        //
+        // Delete child
+        if (!$child->delete() || !$this->createLog('Deleted Child - ' . $child->number, 'Children')) {
+            return $this->error();
+        }
     }
 }

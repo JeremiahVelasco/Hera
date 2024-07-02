@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('height');
             $table->decimal('weight');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
