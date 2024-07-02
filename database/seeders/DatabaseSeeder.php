@@ -31,18 +31,17 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Velasco',
             'email' => 'jimov666@gmail.com',
             'contact' => '09458236715',
-            'children' => json_encode([1])
         ]);
 
         // Child
         Child::create([
-            'guardians' => json_encode([1]),
+            'guardian_id' => 1,
             'given_name' => 'Jeremiah',
             'middle_name' => 'Daligues',
             'last_name' => 'Velasco',
             'date_of_birth' => '10-27-1998',
             'height' => 48.2,
-            'weight' => 2.9
+            'weight' => 29.9
         ]);
 
         // Timeline event

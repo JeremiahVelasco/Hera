@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ChildCollection;
+use App\Http\Resources\ChildResource;
 use App\Models\Child;
+use App\Models\Guardian;
 use App\Traits\LogTrait;
 use App\Traits\ResponseTrait;
 use Illuminate\Http\Request;
@@ -15,7 +18,12 @@ class ChildController extends Controller
      */
     public function index()
     {
-        //
+        // TODO : Change the query to use Auth user later
+        $children = Child::where('guardian_id', 1)->get();
+
+        // TODO : Refactor to return resource
+        // return ChildCollection::collection($children);
+        return response()->json($children);
     }
 
     /**
@@ -32,7 +40,7 @@ class ChildController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'guardians' => 'required',
+            'guardian_id' => 'required',
             'given_name' => 'required',
             'middle_name' => 'nullable',
             'last_name' => 'required',
@@ -42,7 +50,7 @@ class ChildController extends Controller
         ]);
 
         $storeChild = Child::create([
-            'guardians' => $data['guardians'],
+            'guardian_id' => $data['guardian_id'],
             'given_name' => $data['given_name'],
             'middle_name' => $data['middle_name'],
             'last_name' => $data['last_name'],
@@ -79,7 +87,9 @@ class ChildController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // TODO : Implement updating
+        // TODO : Implement adding to timeline
+        // TODO : Implement adding to log
     }
 
     /**

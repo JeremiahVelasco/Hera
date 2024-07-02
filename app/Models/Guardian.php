@@ -16,7 +16,6 @@ class Guardian extends Model
         'email',
         'contact',
         'password',
-        'children'
     ];
 
     public function children()

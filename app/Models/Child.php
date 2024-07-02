@@ -11,7 +11,7 @@ class Child extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'guardians',
+        'guardian_id',
         'given_name',
         'middle_name',
         'last_name',
