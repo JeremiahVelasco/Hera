@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Child;
 use App\Models\RecordsAppointment;
 use App\Models\RecordsGrowth;
 use App\Models\RecordsVaccine;
@@ -19,16 +20,7 @@ class ChildResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'Child Details' => [
-                'id' => $this->id,
-                'Guardian' => $this->guardian_id,
-                'Given Name' => $this->given_name,
-                'Middle Name' => $this->middle_name,
-                'Last Name' => $this->last_name,
-                'Date of Birth' => $this->date_of_birth,
-                'Height' => $this->height,
-                'Weight' => $this->weight,
-            ],
+            'Child Details' => Child::where('id', $this->id)->first(),
             'Child Timeline' => Timeline::where('child_id', $this->id)->get(),
             'Vaccinations' => RecordsVaccine::where('child_id', $this->id)->get(),
             'Appointments' => RecordsAppointment::where('child_id', $this->id)->get(),
