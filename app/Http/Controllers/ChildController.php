@@ -71,7 +71,9 @@ class ChildController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $child = Child::where('id', $id)->first();
+
+        return new ChildResource($child);
     }
 
     /**
